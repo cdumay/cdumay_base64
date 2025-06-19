@@ -1,0 +1,17 @@
+[package]
+name = "cdumay_base64"
+version = "0.1.0"
+edition = "2024"
+
+authors = ["Cédric Dumay <cedric.dumay@gmail.com>"]
+description = "A Rust Library for base64"
+documentation = "https://docs.rs/cdumay_base64"
+homepage = "https://github.com/cdumay/cdumay_base64"
+license-file = "LICENSE"
+readme = "README.md"
+repository = "https://github.com/cdumay/cdumay_base64"
+
+[dependencies]
+base64 = "0.22"
+cdumay_core = { path = "../cdumay_core" }
+serde-value = "0.7"
