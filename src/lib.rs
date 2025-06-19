@@ -3,7 +3,7 @@
 //! [![cdumay_base64 on docs.rs](https://docs.rs/cdumay_base64/badge.svg)](https://docs.rs/cdumay_base64)
 //! [![Source Code Repository](https://img.shields.io/badge/Code-On%20GitHub-blue?logo=GitHub)](https://github.com/cdumay/cdumay_base64)
 //!
-//! A small crate to manipulate base54 data.
+//! A small crate to manipulate base64 data.
 //!
 //! ## Features
 //!
