@@ -1,6 +1,6 @@
 [package]
 name = "cdumay_base64"
-version = "0.1.0"
+version = "0.0.0"
 edition = "2024"
 
 authors = ["Cédric Dumay <cedric.dumay@gmail.com>"]
@@ -13,5 +13,5 @@ repository = "https://github.com/cdumay/cdumay_base64"
 
 [dependencies]
 base64 = "0.22"
-cdumay_core = { path = "../cdumay_core" }
+cdumay_core = "0.1"
 serde-value = "0.7"
