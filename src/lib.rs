@@ -17,7 +17,7 @@
 //!
 //! Using the `Base64DecodeErrorConverter` directly:
 //! ```rust
-//! use base64::{engine::general_purpose, Engine as _};
+//! use cdumay_base64::base64::{engine::general_purpose, Engine as _};
 //! use std::collections::BTreeMap;
 //! use cdumay_core::{ErrorConverter, Error};
 //! use cdumay_base64::Base64DecodeErrorConverter;
@@ -32,7 +32,7 @@
 //! ```
 //! Using the `convert_decode_result!` macro:
 //! ```rust
-//! use base64::{engine::general_purpose, Engine as _};
+//! use cdumay_base64::base64::{engine::general_purpose, Engine as _};
 //! use cdumay_core::{ErrorConverter, Error};
 //! use std::collections::BTreeMap;
 //! use cdumay_base64::convert_decode_result;
@@ -49,3 +49,6 @@ mod macros;
 
 mod errors;
 pub use errors::*;
+
+/// Re-export of the `base64` crate for use in dependent libraries.
+pub use base64;

@@ -24,17 +24,22 @@ impl ErrorConverter for Base64DecodeErrorConverter {
     ///
     /// * `err` - The error returned by the `base64` crate.
     /// * `text` - A human-readable error message.
-    /// * `context` - A mutable reference to a `Context` containing additional metadata.
+    /// * `context` - A map of additional metadata for debugging.
     ///
     /// # Returns
     ///
     /// Returns a structured `Error` with kind `DecodeBase64`, message, and details.
     fn convert(error: &DecodeError, text: String, context: BTreeMap<String, serde_value::Value>) -> Error {
+        macro_rules! to_err {
+            ($e:expr) => {
+                $e.with_message(text).with_details(context).into()
+            };
+        }
         match error {
-            DecodeError::InvalidByte(_, _) => InvalidByteError::new().with_message(text).with_details(context).into(),
-            DecodeError::InvalidLength(_) => InvalidLengthError::new().with_message(text).with_details(context).into(),
-            DecodeError::InvalidLastSymbol(_, _) => InvalidLastSymbolError::new().with_message(text).with_details(context).into(),
-            DecodeError::InvalidPadding => InvalidPaddingError::new().with_message(text).with_details(context).into(),
+            DecodeError::InvalidByte(_, _) => to_err!(InvalidByteError::new()),
+            DecodeError::InvalidLength(_) => to_err!(InvalidLengthError::new()),
+            DecodeError::InvalidLastSymbol(_, _) => to_err!(InvalidLastSymbolError::new()),
+            DecodeError::InvalidPadding => to_err!(InvalidPaddingError::new()),
         }
     }
 }

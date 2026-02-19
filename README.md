@@ -7,19 +7,21 @@
 
 A small crate to manipulate base64 data.
 
-### Features
+## Features
 
+- Re-exports the `base64` crate so you can use it via `cdumay_base64::base64` without adding a separate dependency.
 - Maps all variants of `base64::DecodeError` into structured `cdumay_core::Error` types.
 - Provides unique error codes, HTTP status codes, and human-readable messages.
 - Easily attach contextual metadata for better debugging.
-- Simple integration into any Rust project using `base64` and `cdumay_core`.
-- Provides convenient macro for error conversion
+- Simple integration into any Rust project using `cdumay_base64` and `cdumay_core`.
+- Provides a convenient macro for error conversion.
 
-### Usage
+## Usage
 
 Using the `Base64DecodeErrorConverter` directly:
+
 ```rust
-use base64::{engine::general_purpose, Engine as _};
+use cdumay_base64::base64::{engine::general_purpose, Engine as _};
 use std::collections::BTreeMap;
 use cdumay_core::{ErrorConverter, Error};
 use cdumay_base64::Base64DecodeErrorConverter;
@@ -32,9 +34,11 @@ fn decode_base64(input: &str) -> cdumay_core::Result<Vec<u8>> {
     })
 }
 ```
+
 Using the `convert_decode_result!` macro:
+
 ```rust
-use base64::{engine::general_purpose, Engine as _};
+use cdumay_base64::base64::{engine::general_purpose, Engine as _};
 use cdumay_core::{ErrorConverter, Error};
 use std::collections::BTreeMap;
 use cdumay_base64::convert_decode_result;
@@ -46,3 +50,6 @@ fn decode_base64(input: &str) -> cdumay_core::Result<Vec<u8>> {
 }
 ```
 
+## License
+
+BSD-3-Clause — see [LICENSE](./LICENSE).
